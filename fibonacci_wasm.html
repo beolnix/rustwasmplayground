@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <title>Rust Wasm</title>
+</head>
+<body>
+<script type='text/javascript'>
+    var Module = {};
+    fetch('main.wasm').then(response =>
+        response.arrayBuffer()
+    ).then(buffer => {
+        Module.wasmBinary = buffer;
+        const script = document.createElement('script');
+        script.src = "main.js";
+        document.body.appendChild(script);
+        }
+    );
+</script>
+</body>
+</html>
